@@ -1,0 +1,45 @@
+{
+  "name": "npm-install-dependencies",
+  "version": "1.0.0",
+  "description": "programmatically install npm dependencies",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Matt DesLauriers",
+    "email": "dave.des@gmail.com",
+    "url": "https://github.com/mattdesl"
+  },
+  "dependencies": {
+    "npm": "^2.8.4"
+  },
+  "devDependencies": {
+    "read-json": "^0.1.0",
+    "tape": "^4.0.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "npm",
+    "install",
+    "installation",
+    "installs",
+    "cli",
+    "api",
+    "run",
+    "save",
+    "dev",
+    "save-dev",
+    "--save",
+    "dependencies",
+    "deps"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mattdesl/npm-install-dependencies.git"
+  },
+  "homepage": "https://github.com/mattdesl/npm-install-dependencies",
+  "bugs": {
+    "url": "https://github.com/mattdesl/npm-install-dependencies/issues"
+  }
+}
