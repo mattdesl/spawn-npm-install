@@ -1,6 +1,6 @@
 {
   "name": "spawn-npm-install",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "programmatically install npm dependencies",
   "main": "index.js",
   "license": "MIT",
