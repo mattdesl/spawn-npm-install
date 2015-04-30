@@ -10,8 +10,7 @@
     "url": "https://github.com/mattdesl"
   },
   "dependencies": {
-    "dargs": "^4.0.0",
-    "through2": "^0.6.5"
+    "dargs": "^4.0.0"
   },
   "devDependencies": {
     "concat-stream": "^1.4.8",
