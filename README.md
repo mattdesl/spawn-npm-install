@@ -23,6 +23,12 @@ proc.stderr.pipe(process.stderr)
 proc.stdout.pipe(process.stdout)
 ```
 
+Or, to preserve log output and colors:
+
+```js
+install('tape', { stdio: 'inherit' })
+```
+
 PRs welcome.
 
 ## Usage
@@ -34,7 +40,11 @@ PRs welcome.
 
 Spawns an `npm install` using the given `dependencies` (string or array of strings). You can pass `opt` to the command, which will convert [camel case to dash-case](https://www.npmjs.com/package/dargs) for the CLI arguments. The last parameter `cb` is the callback which is passed `(err)` on failure, or null otherwise.
 
-You can also specify `opt.cwd` to explicitly set the directory the process is spawned from.
+Also accepts some options for the [child process](https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options):
+
+- `env` environment variables
+- `stdio` the standard err/out
+- `cwd` the current working directory
 
 Returns the child process.
 

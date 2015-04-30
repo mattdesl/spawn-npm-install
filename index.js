@@ -29,13 +29,24 @@ function command (cmd, packages, opt, cb) {
     ? 'npm.cmd'
     : 'npm'
 
-  var args = [cmd].concat(deps).concat(dargs(opt))
-  var proc = spawn(npmCmd, args, { cwd: opt.cwd, env: process.env })
+  var spawnArgs = { 
+    cwd: opt.cwd, 
+    env: opt.env || process.env, 
+    stdio: opt.stdio 
+  }
+
+  var cliArgs = dargs(opt, {
+    excludes: ['cwd', 'env', 'stdio']
+  })
+  var args = [cmd].concat(deps).concat(cliArgs)
+  var proc = spawn(npmCmd, args, spawnArgs)
   var error = ''
 
-  proc.stderr.on('data', function (data) {
-    error += data.toString()
-  })
+  if (proc.stderr) {
+    proc.stderr.on('data', function (data) {
+      error += data.toString()
+    })
+  }
 
   proc.once('exit', function (code) {
     // ensure we pass an Error
