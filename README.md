@@ -33,6 +33,8 @@ PRs welcome.
 
 Spawns an `npm install` using the given `dependencies` (string or array of strings). You can pass `opt` to the command, which will convert [camel case to dash-case](https://www.npmjs.com/package/dargs) for the CLI arguments. The last parameter `cb` is the callback which is passed `(err)` on failure, or null otherwise.
 
+You can also specify `opt.cwd` to explicitly set the directory the process is spawned from.
+
 Returns the child process.
 
 Examples:
