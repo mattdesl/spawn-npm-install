@@ -31,10 +31,10 @@ function command (cmd, packages, opt, cb) {
 
   var args = [cmd].concat(deps).concat(dargs(opt))
   var proc = spawn(npmCmd, args, { cwd: opt.cwd, env: process.env })
-  var error = null
+  var error = ''
 
-  proc.stderr.once('data', function (data) {
-    error = data.toString()
+  proc.stderr.on('data', function (data) {
+    error += data.toString()
   })
 
   proc.once('exit', function (code) {
