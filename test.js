@@ -34,9 +34,10 @@ test('should succeed', function (t) {
 
 test('should print some text', function (t) {
   t.plan(1)
-  install('through', function (err) {
+  var proc = install('through', function (err) {
     if (err) t.fail(err)
-  }).stdout.pipe(concat(function (body) {
+  })
+  proc.stdout.pipe(concat(function (body) {
     t.notEqual(body.toString().indexOf('through'), -1, 'downloaded body')
   }))
 })

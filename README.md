@@ -15,10 +15,11 @@ install(['through2', 'quote-stream'], { saveDev: true }, function(err) {
 })
 ```
 
-Returns the child process, so you can print to stdout like so:
+Returns the child process, so you can print install log/warnings like so:
 
 ```js
 var proc = install('tape')
+proc.stderr.pipe(process.stderr)
 proc.stdout.pipe(process.stdout)
 ```
 

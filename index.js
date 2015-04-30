@@ -34,11 +34,17 @@ function command (cmd, packages, opt, cb) {
   var error = null
 
   proc.stderr.once('data', function (data) {
-    error = new Error(data.toString())
+    error = data.toString()
   })
 
   proc.once('exit', function (code) {
-    cb(code === 0 ? null : error)
+    // ensure we pass an Error
+    if (code === 0) {
+      cb(null)
+    } else {
+      var msg = error || 'exit code ' + code
+      cb(new Error(msg))
+    }
   })
 
   return proc
