@@ -29,14 +29,13 @@ function command (cmd, packages, opt, cb) {
     ? 'npm.cmd'
     : 'npm'
 
-  var spawnArgs = { 
-    cwd: opt.cwd, 
-    env: opt.env || process.env, 
-    stdio: opt.stdio 
+  var spawnArgs = {
+    cwd: opt.cwd,
+    env: opt.env || process.env,
+    stdio: opt.stdio
   }
-
   var cliArgs = dargs(opt, {
-    excludes: ['cwd', 'env', 'stdio']
+    excludes: Object.keys(spawnArgs)
   })
   var args = [cmd].concat(deps).concat(cliArgs)
   var proc = spawn(npmCmd, args, spawnArgs)
