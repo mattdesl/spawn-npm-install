@@ -1,13 +1,56 @@
-# npm-install-dependencies
+# spawn-npm-install
 
 [![stable](http://badges.github.io/stability-badges/dist/stable.svg)](http://github.com/badges/stability-badges)
 
-programmatically install npm dependencies
+Programmatically install/uninstall npm dependencies by spawning a `npm` child process.
+
+```js
+var install = require('spawn-npm-install')
+
+install(['through2', 'quote-stream'], { saveDev: true }, function(err) {
+  if (err)
+    console.error("Could not install:\n" + err.message)
+  else
+    console.log("Installed.")
+})
+```
+
+Returns the child process, so you can print to stdout like so:
+
+```js
+var proc = install('tape')
+proc.stdout.pipe(process.stdout)
+```
+
+PRs welcome.
 
 ## Usage
 
-[![NPM](https://nodei.co/npm/npm-install-dependencies.png)](https://www.npmjs.com/package/npm-install-dependencies)
+[![NPM](https://nodei.co/npm/spawn-npm-install.png)](https://www.npmjs.com/package/spawn-npm-install)
+
+#### `spawn = require('spawn-npm-install')`
+#### `proc = spawn(dependencies, [opt], [cb])`
+
+Spawns an `npm install` using the given `dependencies` (string or array of strings). You can pass `opt` to the command, which will convert [camel case to dash-case](https://www.npmjs.com/package/dargs) for the CLI arguments. The last parameter `cb` is the callback which is passed `(err)` on failure, or null otherwise.
+
+Returns the child process.
+
+Examples:
+
+```js
+var install = require('spawn-npm-install')
+install('tape', { saveDev: true }, done)
+
+install(['zalgo', 'img'], function(err) {
+  if (err) 
+    console.error(err.message)
+})
+```
+
+#### `proc = spawn.uninstall(dependencies, [opt], [cb])`
+
+The same as above, but triggers `npm uninstall` instead. 
 
 ## License
 
-MIT, see [LICENSE.md](http://github.com/mattdesl/npm-install-dependencies/blob/master/LICENSE.md) for details.
+MIT, see [LICENSE.md](http://github.com/mattdesl/spawn-npm-install/blob/master/LICENSE.md) for details.

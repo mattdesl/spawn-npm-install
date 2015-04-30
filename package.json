@@ -1,5 +1,5 @@
 {
-  "name": "npm-install-dependencies",
+  "name": "spawn-npm-install",
   "version": "1.0.0",
   "description": "programmatically install npm dependencies",
   "main": "index.js",
@@ -10,14 +10,18 @@
     "url": "https://github.com/mattdesl"
   },
   "dependencies": {
-    "npm": "^2.8.4"
+    "dargs": "^4.0.0",
+    "through2": "^0.6.5"
   },
   "devDependencies": {
+    "concat-stream": "^1.4.8",
     "read-json": "^0.1.0",
+    "standard": "^3.7.2",
+    "tap-spec": "^3.0.0",
     "tape": "^4.0.0"
   },
   "scripts": {
-    "test": "node test.js"
+    "test": "standard && node test.js | tap-spec"
   },
   "keywords": [
     "npm",
@@ -30,16 +34,19 @@
     "save",
     "dev",
     "save-dev",
+    "--save-dev",
+    "uninstall",
+    "spawn",
     "--save",
     "dependencies",
     "deps"
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/mattdesl/npm-install-dependencies.git"
+    "url": "git://github.com/mattdesl/spawn-npm-install.git"
   },
-  "homepage": "https://github.com/mattdesl/npm-install-dependencies",
+  "homepage": "https://github.com/mattdesl/spawn-npm-install",
   "bugs": {
-    "url": "https://github.com/mattdesl/npm-install-dependencies/issues"
+    "url": "https://github.com/mattdesl/spawn-npm-install/issues"
   }
 }
