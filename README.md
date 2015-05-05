@@ -36,7 +36,7 @@ PRs welcome.
 [![NPM](https://nodei.co/npm/spawn-npm-install.png)](https://www.npmjs.com/package/spawn-npm-install)
 
 #### `spawn = require('spawn-npm-install')`
-#### `proc = spawn(dependencies, [opt], [cb])`
+#### `proc = spawn.install(dependencies, [opt], [cb])`
 
 Spawns an `npm install` using the given `dependencies` (string or array of strings). You can pass `opt` to the command, which will convert [camel case to dash-case](https://www.npmjs.com/package/dargs) for the CLI arguments. The last parameter `cb` is the callback which is passed `(err)` on failure, or null otherwise.
 
@@ -60,11 +60,7 @@ install(['zalgo', 'img'], function(err) {
 })
 ```
 
-This is the default export, but `install` and `uninstall` are both exported so the following ES6 should be valid:
-
-```js
-import { uninstall, install } from 'spawn-npm-install'
-```
+The default export `spawn` is the same as `spawn.install`, for symmetry.
 
 #### `proc = spawn.uninstall(dependencies, [opt], [cb])`
 
