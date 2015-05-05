@@ -3,6 +3,7 @@ var dargs = require('dargs')
 var noop = function () {}
 
 module.exports = command.bind(null, 'install')
+module.exports.install = command.bind(null, 'install')
 module.exports.uninstall = command.bind(null, 'uninstall')
 
 function command (cmd, packages, opt, cb) {
