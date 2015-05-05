@@ -60,6 +60,12 @@ install(['zalgo', 'img'], function(err) {
 })
 ```
 
+This is the default export, but `install` and `uninstall` are both exported so the following ES6 should be valid:
+
+```js
+import { uninstall, install } from 'spawn-npm-install'
+```
+
 #### `proc = spawn.uninstall(dependencies, [opt], [cb])`
 
 The same as above, but triggers `npm uninstall` instead. 

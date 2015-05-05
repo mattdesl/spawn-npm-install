@@ -15,6 +15,14 @@ test('no deps should install', function (t) {
   t.plan(1)
 })
 
+test('exports install methods', function (t) {
+  install.install([], function (err) {
+    if (err) t.fail(err)
+    t.ok(true, 'yup, method is there')
+  })
+  t.plan(1)
+})
+
 test('should fail on error', function (t) {
   t.plan(2)
   var list = ['throuaaa(*@gh']
