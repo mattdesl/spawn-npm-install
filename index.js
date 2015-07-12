@@ -26,9 +26,12 @@ function command (cmd, packages, opt, cb) {
     })
   }
 
-  var npmCmd = process.platform === 'win32'
-    ? 'npm.cmd'
-    : 'npm'
+  var npmCmd = opt.command
+  if (!npmCmd) {
+    npmCmd = process.platform === 'win32'
+      ? 'npm.cmd'
+      : 'npm'
+  }
 
   var spawnArgs = {
     cwd: opt.cwd,

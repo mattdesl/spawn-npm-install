@@ -40,6 +40,8 @@ PRs welcome.
 
 Spawns an `npm install` using the given `dependencies` (string or array of strings). You can pass `opt` to the command, which will convert [camel case to dash-case](https://www.npmjs.com/package/dargs) for the CLI arguments. The last parameter `cb` is the callback which is passed `(err)` on failure, or null otherwise.
 
+You can specify a `command` for options to use instead of the default `npm` (e.g. for specialized [analytics](https://github.com/mattdesl/npm-install-analytics) or other hooks).
+
 Also accepts some options for the [child process](https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options):
 
 - `env` environment variables
