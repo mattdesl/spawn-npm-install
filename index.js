@@ -5,6 +5,9 @@ var noop = function () {}
 module.exports = command.bind(null, 'install')
 module.exports.install = command.bind(null, 'install')
 module.exports.uninstall = command.bind(null, 'uninstall')
+module.exports.cmd = function(cmdName) {
+  return command.bind(null, cmdName)
+} 
 
 function command (cmd, packages, opt, cb) {
   if (typeof opt === 'function') {
