@@ -56,8 +56,9 @@ function command (cmd, packages, opt, cb) {
     if (code === 0) {
       cb(null)
     } else {
-      var msg = error || 'exit code ' + code
-      cb(new Error(msg))
+      var err = new Error(error || 'exit code ' + code)
+      err.code = code
+      cb(err)
     }
   })
 
