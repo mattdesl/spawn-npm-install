@@ -34,6 +34,7 @@ function command (cmd, packages, opt, cb) {
   }
 
   var spawnArgs = {
+    shell: true,
     cwd: opt.cwd,
     env: opt.env || process.env,
     stdio: opt.stdio
