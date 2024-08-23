@@ -38,6 +38,7 @@ function command (cmd, packages, opt, cb) {
     env: opt.env || process.env,
     stdio: opt.stdio
   }
+  if (opt.shell) spawnArgs.shell = opt.shell;
   var cliArgs = dargs(opt, {
     excludes: Object.keys(spawnArgs)
   })
