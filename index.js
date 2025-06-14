@@ -40,7 +40,7 @@ function command (cmd, packages, opt, cb) {
   }
   if (opt.shell) spawnArgs.shell = opt.shell;
   var cliArgs = dargs(opt, {
-    excludes: Object.keys(spawnArgs)
+    excludes: ['command'].concat(Object.keys(spawnArgs))
   })
   var args = [cmd].concat(deps).concat(cliArgs)
   var proc = spawn(npmCmd, args, spawnArgs)
