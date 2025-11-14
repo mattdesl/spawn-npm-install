@@ -15,7 +15,7 @@
   "devDependencies": {
     "concat-stream": "^1.4.8",
     "read-json": "^0.1.0",
-    "standard": "^3.7.2",
+    "standard": "^17.1.2",
     "tap-spec": "^3.0.0",
     "tape": "^4.0.0"
   },
